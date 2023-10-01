@@ -8,6 +8,10 @@ function Transactions({ walletId }) {
   const [description, setDescription] = useState('');
   const [transactionType, setTransactionType] = useState('CREDIT');
   const [currentBalance, setCurrentBalance] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [sortBy, setSortBy] = useState('date'); // 'date' or 'amount'
+  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' or 'desc'
 
   const fetchTransactions = async () => {
     try {
@@ -18,6 +22,7 @@ function Transactions({ walletId }) {
       console.error(error);
     }
   };
+
   const fetchBalance = async () => {
     try {
       const data = await api.fetchCurrentBalance(walletId);
@@ -30,7 +35,7 @@ function Transactions({ walletId }) {
   useEffect(() => {
     fetchTransactions();
     fetchBalance();
-  }, []);
+  }, [walletId, currentPage, itemsPerPage, sortBy, sortOrder]);
 
   const handleTransaction = async () => {
     try {
@@ -42,6 +47,33 @@ function Transactions({ walletId }) {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentTransactions = transactions.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const toggleSortOrder = () => {
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  };
+
+  const exportToCSV = () => {
+    const csvContent = 'data:text/csv;charset=utf-8,';
+    const header = ['Date', 'Amount', 'Description', 'Type'].join(',');
+
+    const rows = transactions.map((transaction) =>
+      [transaction.date, transaction.amount, transaction.description, transaction.type].join(',')
+    );
+
+    const csv = [header, ...rows].join('\n');
+    const encodedCSV = encodeURI(csvContent + csv);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedCSV);
+    link.setAttribute('download', 'transactions.csv');
+    document.body.appendChild(link);
+    link.click();
   };
 
   return (
@@ -73,14 +105,14 @@ function Transactions({ walletId }) {
         <table>
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Amount</th>
+              <th ><button onClick={toggleSortOrder}>Date</button></th>
+              <th ><button onClick={toggleSortOrder}>Amount</button></th>
               <th>Description</th>
               <th>Type</th>
             </tr>
           </thead>
           <tbody>
-            {transactions.map((transaction) => (
+            {currentTransactions.map((transaction) => (
               <tr key={transaction.id}>
                 <td>{transaction.date}</td>
                 <td>{transaction.amount}</td>
@@ -90,6 +122,15 @@ function Transactions({ walletId }) {
             ))}
           </tbody>
         </table>
+        <div>
+          <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+            Previous Page
+          </button>
+          <button onClick={() => paginate(currentPage + 1)} disabled={indexOfLastItem >= transactions.length}>
+            Next Page
+          </button>
+          <button onClick={exportToCSV}>Export CSV</button>
+        </div>
       </div>
     </div>
   );

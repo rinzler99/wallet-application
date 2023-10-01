@@ -1,70 +1,59 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`# Wallet Application
 
-## Available Scripts
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Before you begin, ensure you have met the following requirements:
 
-### `npm test`
+- **Node.js**: Make sure Node.js is installed on your system. You can download it from [nodejs.org](https://nodejs.org/).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. **Clone the Repository**:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone git@github.com:rinzler99/wallet-application.git `
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  Navigate to the Project Folder:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    bashCopy code
 
-### `npm run eject`
+    `cd wallet-frontend`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.  Install Dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    bashCopy code
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    `npm install`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Starting the Application
 
-## Learn More
+To start the React application, run the following command:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+bashCopy code
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm start`
 
-### Code Splitting
+This will start the development server, and the application will be accessible at `http://localhost:3000` in your web browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Usage
+-----
 
-### Analyzing the Bundle Size
+1.  Initialize Your Wallet:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    -   Visit the application in your browser.
+    -   If you don't have a wallet configured, you will be prompted to set up a new wallet. Provide your username and an optional initial balance.
+2.  Perform Transactions:
 
-### Making a Progressive Web App
+    -   Once your wallet is set up, you can perform transactions by entering the transaction amount and description. You can choose to credit or debit your wallet.
+3.  View Transaction History:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    -   Visit the "Transaction History" page to view a table of all your wallet transactions.
+4.  Clear Wallet Data (Optional):
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    -   To start fresh, click the "Clear Wallet Data" button on the homepage. This will remove your wallet data from local storage.
