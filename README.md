@@ -20,9 +20,11 @@ Navigate to the Frontend Directory
 ```bash
 cd wallet-frontend
 
-Install Dependencies
+#Install Dependencies
 
 npm install
+
+npm run start
 ```
 
 Configure Environment Variables
