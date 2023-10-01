@@ -1,11 +1,25 @@
 const express = require("express");
 const swaggerJsdoc = require("swagger-jsdoc");
+const methodOverride = require('method-override');
 const swaggerUi = require("swagger-ui-express");
+const bodyParser = require('body-parser');
 const yaml = require("yamljs");
+const cors = require('cors');
 
 require("dotenv").config();
 const app = express();
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+    methodOverride(function(req) {
+      if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+        var method = req.body._method;
+        delete req.body._method;
+        return method;
+      }
+    })
+  );
+app.use(cors({origin: '*'}));
 const port = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const mongoDBUrl = process.env.MONGODB_URL;
@@ -29,10 +43,6 @@ const options = {
 };
 
 const specs = swaggerJsdoc(options);
-
-// Middleware
-app.use(express.json());
-
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 // Routes

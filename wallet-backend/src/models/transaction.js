@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
+const { v4: uuidv4 } = require('uuid');
 
 const transactionSchema = new mongoose.Schema({
+    _id: { type: String, default: uuidv4 },
   amount: {
     type: Number,
     required: true,
+    set: (value) => parseFloat(value.toFixed(4))
   },
   description: {
     type: String,

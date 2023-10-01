@@ -24,6 +24,85 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WalletResponse'
+
+  /api/wallet/transact/{walletId}:
+    post:
+      tags:
+        - Wallet
+      summary: Credit/Debit amount to the wallet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionRequest'
+      parameters:
+        - name: walletId
+          in: path
+          required: true
+          description: ID of the wallet
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Transaction successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionResponse'
+
+  /api/wallet/transactions:
+    get:
+      tags:
+        - Wallet
+      summary: Fetch recent transactions
+      parameters:
+        - name: walletId
+          in: query
+          required: true
+          description: ID of the wallet
+          schema:
+            type: string
+        - name: skip
+          in: query
+          required: false
+          description: Number of transactions to skip (optional)
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of transactions to retrieve (optional)
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Transactions retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionList'
+
+  /api/wallet/{id}:
+    get:
+      tags:
+        - Wallet
+      summary: Get wallet details by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wallet
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Wallet details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletResponse'
+
 components:
   schemas:
     WalletSetup:
@@ -48,3 +127,41 @@ components:
         date:
           type: string
           format: date-time
+
+    TransactionRequest:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: float
+        description:
+          type: string
+
+    TransactionResponse:
+      type: object
+      properties:
+        balance:
+          type: number
+        transactionId:
+          type: string
+
+    TransactionList:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          walletId:
+            type: string
+          amount:
+            type: number
+          balance:
+            type: number
+          description:
+            type: string
+          date:
+            type: string
+            format: date-time
+          type:
+            type: string

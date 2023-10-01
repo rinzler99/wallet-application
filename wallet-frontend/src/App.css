@@ -1,0 +1,95 @@
+
+.App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  h2 {
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  .WalletSetup {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  .WalletSetup input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .WalletSetup button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .WalletSetup button:hover {
+    background-color: #0056b3;
+  }
+  .TransactionForm {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  .TransactionForm input[type="number"],
+  .TransactionForm input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .TransactionForm button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .TransactionForm button:hover {
+    background-color: #0056b3;
+  }
+  
+  .TransactionTable {
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .TransactionTable table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .TransactionTable th,
+  .TransactionTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .TransactionTable th {
+    background-color: #f2f2f2;
+  }
+    
