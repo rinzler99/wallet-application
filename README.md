@@ -35,27 +35,28 @@ This environment variable should point to your Express.js API base URL.
 
 Build the Frontend
 
-
+```bash
 npm run build
+```
 
 **Step 3: Backend Setup**
 
 Navigate to the Backend Directory
 
-
-
+```bash
 cd ../your-wallet-backend
+```
 
 Install Dependencies
 
-
+```bash
 npm install
+```
 
 Configure Environment Variables
 
 In the backend directory, create a .env file and set the following environment variables:
 
-makefile
 
 
 PORT=3000 MONGODB_URI=your-mongodb-uri
@@ -64,9 +65,9 @@ Replace your-mongodb-uri with the URI for your MongoDB database.
 
 Start the Backend Server
 
-
-
+```bash
 npm start
+```
 
 **Step 4: Access the Application**
 
