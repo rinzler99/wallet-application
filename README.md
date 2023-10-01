@@ -44,7 +44,7 @@ npm run build
 Navigate to the Backend Directory
 
 ```bash
-cd ../your-wallet-backend
+cd wallet-backend
 ```
 
 Install Dependencies
