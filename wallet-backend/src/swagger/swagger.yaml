@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: Wallet API
+  version: 1.0.0
+  description: API documentation for the Wallet System
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /api/wallet/setup:
+    post:
+      tags:
+        - Wallet
+      summary: Create a new wallet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletSetup'
+      responses:
+        '200':
+          description: Wallet setup successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletResponse'
+components:
+  schemas:
+    WalletSetup:
+      type: object
+      properties:
+        balance:
+          type: number
+          format: float
+        name:
+          type: string
+    WalletResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        balance:
+          type: number
+        transactionId:
+          type: string
+        name:
+          type: string
+        date:
+          type: string
+          format: date-time
