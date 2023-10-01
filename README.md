@@ -17,13 +17,13 @@ Clone the frontend repository git clone git@github.com:rinzler99/wallet-applicat
 
 Navigate to the Frontend Directory
 
-
+```bash
 cd wallet-frontend
 
 Install Dependencies
 
-
 npm install
+```
 
 Configure Environment Variables
 
