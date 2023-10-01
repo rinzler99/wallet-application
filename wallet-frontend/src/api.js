@@ -50,15 +50,6 @@ const api = {
       throw error;
     }
   },
-  fetchCurrentBalance: async (walletId) => {
-    try {
-      const response = await axios.get(`${BASE_URL}/${walletId}`);
-      return response.data.data.balance;
-    } catch (error) {
-        alert(error.response.data.error);
-      throw error;
-    }
-  },
 };
 
 export default api;

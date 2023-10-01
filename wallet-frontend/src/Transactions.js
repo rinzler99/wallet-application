@@ -25,8 +25,8 @@ function Transactions({ walletId }) {
 
   const fetchBalance = async () => {
     try {
-      const data = await api.fetchCurrentBalance(walletId);
-      setCurrentBalance(data);
+      const res = await api.getWalletById(walletId);
+      setCurrentBalance(res.data.data.balance);
     } catch (error) {
       console.error(error);
     }

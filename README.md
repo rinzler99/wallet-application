@@ -71,13 +71,12 @@ Start the Backend Server
 npm start
 ```
 
-**Step 4: Access the Application**
+ Access the Application**
 
-Your Wallet Application is now set up and running. You can access it using the following URLs:
+Your Wallet Application is now set up and running. You can access it using the localhost URLs:
 
--   **Frontend UI**: <https://highlevel-wallet-ui.netlify.app/>
--   **Express API**: <https://highlevel-wallet-service.onrender.com/>
--   **API Documentation**: <https://highlevel-wallet-service.onrender.com/api-docs/>
+-   **Frontend UI**: <https://localhost:3001/>
+-   **API Documentation**: <https://localhost:3000/api-docs/>
 
 Database Design for Wallet Application
 

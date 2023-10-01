@@ -21,13 +21,11 @@ Before you begin, ensure you have met the following requirements:
 
 1.  Navigate to the Project Folder:
 
-    bashCopy code
 
     `cd wallet-frontend`
 
 2.  Install Dependencies:
 
-    bashCopy code
 
     `npm install`
 
@@ -35,7 +33,6 @@ Before you begin, ensure you have met the following requirements:
 
 To start the React application, run the following command:
 
-bashCopy code
 
 `npm start`
 
